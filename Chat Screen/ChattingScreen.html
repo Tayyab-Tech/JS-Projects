@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatting Screen</title>
+    <link rel="stylesheet" href="ChattingScreen.css">
+</head>
+<body>
+    <div class="main">
+        <div class="Left-Screen">
+            <div class="nav">
+                <div class="left-nav">
+                    <div class="Profile-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wd-b5DSItpmDOSqEE4HOKWUbP9TxuVTTkA&s" alt=""></div>
+                    <div class="Profile-Name">
+                        <h2>ME</h2>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <div class="right-nav">
+                    <img class="collon" height="40px" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/menu-2.png" alt="menu-2"/>
+                </div>
+            </div>
+
+            <div class="Chat-Screen" id="LeftChatScreen"></div>
+
+            <div class="footer">
+                <form action="" onsubmit="return sendMessage('left')">
+                    <input id="MessageLeft" type="text" placeholder="Type a message...">
+                </form>
+                <button>
+                    <svg onclick="sendMessage('left')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" color="#004238" fill="white">
+                        <path d="M21.0477 3.05293C18.8697 0.707363 2.48648 6.4532 2.50001 8.551C2.51535 10.9299 8.89809 11.6617 10.6672 12.1581C11.7311 12.4565 12.016 12.7625 12.2613 13.8781C13.3723 18.9305 13.9301 21.4435 15.2014 21.4996C17.2278 21.5892 23.1733 5.342 21.0477 3.05293Z" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M11.5 12.5L15 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="Right-Screen">
+            <div class="nav">
+                <div class="left-nav">
+                    <div class="Profile-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wd-b5DSItpmDOSqEE4HOKWUbP9TxuVTTkA&s" alt=""></div>
+                    <div class="Profile-Name">
+                        <h2>HIM</h2>
+                        <span>Online</span>
+                    </div>
+                </div>
+                <div class="right-nav">
+                    <img class="collon" height="40px" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/menu-2.png" alt="menu-2"/>
+                </div>
+            </div>
+
+            <div class="Chat-Screen" id="RightChatScreen"></div>
+
+            <div class="footer">
+                <form action="" onsubmit="return sendMessage('right')">
+                    <input id="MessageRight" type="text" placeholder="Type a message...">
+                </form>
+                <button onclick="sendMessage('right')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" color="#004238" fill="white">
+                        <path d="M21.0477 3.05293C18.8697 0.707363 2.48648 6.4532 2.50001 8.551C2.51535 10.9299 8.89809 11.6617 10.6672 12.1581C11.7311 12.4565 12.016 12.7625 12.2613 13.8781C13.3723 18.9305 13.9301 21.4435 15.2014 21.4996C17.2278 21.5892 23.1733 5.342 21.0477 3.05293Z" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M11.5 12.5L15 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ChattingScreen.js"></script>
+</body>
+</html>

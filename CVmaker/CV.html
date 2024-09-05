@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker</title>
+    <style>
+        * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body {
+                background-color: #f4f4f4;
+                padding: 20px;
+                color: #333;
+            }
+            h1, h3 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            form {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .Data-Input {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+            }
+            label {
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #555;
+            }
+            input, textarea {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            textarea {
+                resize: none;
+                height: 100px;
+            }
+            #generateCV {
+                background-color: #4CAF50;
+                color: white;
+                padding: 12px 25px;
+                text-align: center;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 20px;
+                width: 600px;
+                left: 330px;
+                position: absolute;
+                transition: background-color 0.3s;
+            }
+            #generateCV:hover {
+                background-color: #45a049;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+            .CV {
+                width: 900px;
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .bar {
+                width: 100%;
+                height: 30px;
+                background-color: rgb(0, 0, 81);
+                border-radius: 5px 5px 0 0;
+            }
+            .Data-Show {
+                padding: 20px;
+            }
+            .Name {
+                margin-bottom: 10px;
+                font-size: 40px;
+                color: rgb(0, 0, 81);
+            }
+            .Profession {
+                padding-bottom: 5px;
+                border-bottom: 2px solid gray;
+                font-size: 18px;
+                color: #777;
+            }
+            .body-part {
+                display: flex;
+                margin-top: 40px;
+                gap: 2%;
+            }
+            .Personal-Info {
+                width: 35%;
+                padding-right: 10px;
+                border-right: 2px solid gray;
+            }
+            .Right-Side {
+                width: 60%;
+                padding-left: 10px;
+            }
+            h2 {
+                background-color: rgb(0, 0, 81);
+                color: white;
+                padding: 10px;
+                text-align: center;
+                border-radius: 30px;
+                margin-bottom: 20px;
+            }
+            .Profile-Info p, .Company-Details, .skill-list, .Position-Duration {
+                color: #555;
+            }
+            .Position-Duration {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .skill-list li {
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+            .Company-Name {
+                margin: 10px 0;
+                font-size: 18px;
+                color: #333;
+            }
+            .PHONE-NO, .EMAIL, .ADDRESS{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+            .education-info, .skill-info, .EXPERIENCE{
+                margin-top: 20px;
+            }
+            .Degree-1{
+                margin-top: 20px;
+            }
+            .Position-Duration-2{
+                margin-top: 20px;
+            }
+            .Print-btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .Print{
+                background-color: rgb(0, 0, 81);
+                color: white;
+                font-size: 1em;
+                padding: 10px;
+                cursor: pointer;
+                border: none;
+            }
+            .Company-Details{
+                width: 100%;
+                text-align: justify;
+            }
+            .Profile-Details{
+                width: 100%;
+                text-align: justify;
+                
+            }
+    </style>
+</head>
+<body>
+    <div id="hidden-part">
+        <h1 style="text-align: center; margin-top: 10px;">Fill The Form To Make a CV</h1>
+        <form id="cvForm" onsubmit="return validateForm()">
+            <div class="first">
+                <h3>Basic Info * :</h3>
+                <div class="Data-Input">
+                    <label for="Name">Name :</label>
+                    <input type="text" id="Name" name="Name" placeholder="Enter Name..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Profession">Profession :</label>
+                    <input type="text" id="Profession" name="Profession" placeholder="Enter your Profession..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Phone">Phone No :</label>
+                    <input type="tel" id="Phone" name="Phone" placeholder="Enter Your Phone Number..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Email">Email :</label>
+                    <input type="email" id="Email" name="Email" placeholder="Enter Your Email..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Address">Address :</label>
+                    <input type="text" id="Address" name="Address" placeholder="Enter Your Address..." required>
+                </div>
+            </div>
+            <div class="second">
+                <h3>Education * :</h3>
+                <div class="Data-Input">
+                    <label for="Course">Course Studied :</label>
+                    <input type="text" id="Course" name="Course" placeholder="Enter Course..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Institute">Institute :</label>
+                    <input type="text" id="Institute" name="Institute" placeholder="Enter Institute..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Year">Year :</label>
+                    <input type="text" id="Year" name="Year" placeholder="Enter Year..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Course-2">Course Studied :</label>
+                    <input type="text" id="Course-2" name="Course" placeholder="Enter Course..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Institute-2">Institute :</label>
+                    <input type="text" id="Institute-2" name="Institute" placeholder="Enter Institute...">
+                </div>
+                <div class="Data-Input">
+                    <label for="Year-2">Year :</label>
+                    <input type="text" id="Year-2" name="Year" placeholder="Enter Year...">
+                </div>
+            </div>
+            <div class="third">
+                <h3>Max 6 Skills *:</h3>
+                <div class="Data-Input">
+                    <label for="Skill1">Skill 1 :</label>
+                    <input type="text" id="Skill1" name="Skill1" placeholder="Enter Skill 1..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Skill2">Skill 2 :</label>
+                    <input type="text" id="Skill2" name="Skill2" placeholder="Enter Skill 2..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Skill3">Skill 3 :</label>
+                    <input type="text" id="Skill3" name="Skill3" placeholder="Enter Skill 3..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Skill4">Skill 4 :</label>
+                    <input type="text" id="Skill4" name="Skill4" placeholder="Enter Skill 4..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Skill5">Skill 5 :</label>
+                    <input type="text" id="Skill5" name="Skill5" placeholder="Enter Skill 5..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Skill6">Skill 6 :</label>
+                    <input type="text" id="Skill6" name="Skill6" placeholder="Enter Skill 6..." required>
+                </div>
+            </div>
+            <div class="fourth">
+                <div class="PROFILE">
+                    <h3>Profile * :</h3>
+                    <textarea id="Profile" name="Profile" placeholder="Enter your Profile..." required></textarea>
+                </div>
+                <h3>Experience :</h3>
+                <h3>Job 1 * :</h3>
+                <div class="Data-Input">
+                    <label for="Job">Job Position :</label>
+                    <input type="text" id="Job" name="Job" placeholder="Enter Job Position..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Company">Company :</label>
+                    <input type="text" id="Company" name="Company" placeholder="Enter Company..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Duration">Duration :</label>
+                    <input type="text" id="Duration" name="Duration" placeholder="Enter Duration..." required>
+                </div>
+                <div class="Data-Input">
+                    <label for="Description">Description :</label>
+                    <textarea id="Description" name="Description" placeholder="Enter Job Description..." required></textarea>
+                </div>
+                <h3>Job 2 :</h3>
+                <div class="Data-Input">
+                    <label for="Job-2">Job Position :</label>
+                    <input type="text" id="Job-2" name="Job" placeholder="Enter Job Position...">
+                </div>
+                <div class="Data-Input">
+                    <label for="Company-2">Company :</label>
+                    <input type="text" id="Company-2" name="Company" placeholder="Enter Company...">
+                </div>
+                <div class="Data-Input">
+                    <label for="Duration-2">Duration :</label>
+                    <input type="text" id="Duration-2" name="Duration" placeholder="Enter Duration...">
+                </div>
+                <div class="Data-Input">
+                    <label for="Description-2">Description :</label>
+                    <textarea id="Description-2" name="Description" placeholder="Enter Job Description..."></textarea>
+                </div>
+            </div>
+            <button type="submit" id="generateCV">Generate CV</button>
+        </form>
+    </div>
+    <div class="container"></div>
+    <div class="Print-btn"></div>
+
+    <script src="CV.js"></script>
+</body>
+</html>

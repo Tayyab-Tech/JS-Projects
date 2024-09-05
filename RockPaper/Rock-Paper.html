@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock , Paper , Scissors Game</title>
+</head>
+<style>
+body {
+    background:linear-gradient(45deg, rgb(97, 133, 170), rgb(129, 196, 187));
+    text-align: center;
+}
+.container{
+    position: relative;
+    top: 100px;
+}
+button {
+    background-color: rgb(25, 25, 19);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: rgb(53, 53, 43);
+}
+.result {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>WELCOME TO GAME ZONE</h1>
+        <h2>Select Any of one to Play with Computer</h2>
+        <button onclick="func('Rock')">
+            <h3>ROCK</h3>
+        </button>
+        <button onclick="func('Paper')">
+            <h3>Paper</h3>
+        </button>
+        <button onclick="func('Scissors')">
+            <h3>Scissors</h3>
+        </button>
+        <div class="result"></div>
+    </div>
+
+</body>
+<script>
+    function func(a) {
+
+        let array = ["Rock", "Paper", "Scissors"]
+        let computer = array[Math.floor(Math.random() * 3)]
+
+        let result;
+
+        switch (a) {
+            case "Rock":
+                if (computer === "Rock") {
+                    result = "Its a Draw!"
+                }
+                else if (computer === "Scissors") {
+                    result = "You Wins!"
+                }
+                else if (computer === "Paper") {
+                    result = "Computer Wins!"
+                }
+                break;
+            case "Paper":
+                if (computer === "Rock") {
+                    result = "You Wins!";
+                } else if (computer === "Paper") {
+                    result = "Its a Draw";
+                } else if (computer === "Scissors") {
+                    result = "Computer Wins!";
+                }
+                break;
+            case "Scissors":
+                if (computer === "Rock") {
+                    result = "Computer Wins!";
+                } else if (computer === "Paper") {
+                    result = "You Wins!";
+                } else if (computer === "Scissors") {
+                    result = "Its a Draw";
+                }
+                break;
+
+        }
+
+        document.getElementsByClassName("result")[0].innerHTML = " Computer Select " + computer + "<br>" + result
+
+
+    }
+</script>
+
+</html>
