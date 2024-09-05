@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #285238;
+        font-family: 'Courier New', Courier, monospace;
+        color: black;
+        padding: 40px;
+    }
+    #hacking-simulator{
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+    .message {
+            margin: 10px 0;
+    }
+    .dots {
+        display: inline-block;
+        font-weight: bold;
+        }
+    @keyframes blink {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    .dots span {
+        animation: blink 1s infinite;
+    }
+    .dots span:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    .dots span:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+    .thanku{
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    
+    <div id="hacking-simulator"></div>
+    <div class="thanks"></div>
+
+    <script>
+
+        const msg = [
+            "Initializing Hacking",
+            "Reading your Files",
+            "Password files Detected",
+            "Sending all passwords and personal files to server",
+            "Cleaning up",
+        ];
+
+        function randomSec(){
+            return Math.floor(Math.random() * 4000) + 1000;
+        }
+
+        function CreateMessage(text){
+            const messages = document.createElement('div')
+            messages.className = 'message'
+            messages.textContent = text
+
+            const dots = document.createElement('span')
+            dots.className = 'dots'
+            dots.innerHTML = '<span>.</span><span>.</span><span>.</span>'
+            messages.appendChild(dots)
+
+            return messages
+        }
+
+        async function DisplayMessage(){
+            for(let a of msg){
+                const messages = CreateMessage(a)
+                document.getElementById('hacking-simulator').appendChild(messages)
+                await new Promise(x => setTimeout(x, randomSec()))
+                messages.querySelector('.dots').remove();
+                messages.textContent += '...';
+            }
+            thanks()
+        }
+        DisplayMessage()
+
+        function thanks(){
+            const thanksMsg = document.createElement('div')
+            thanksMsg.className ='thanku'
+            thanksMsg.textContent = 'Thank you for using our Hacker Terminal!'
+            document.querySelector('.thanks').appendChild(thanksMsg)
+        }
+
+        
+
+    </script>
+</body>
+</html>
